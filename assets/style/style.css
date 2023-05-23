@@ -1,0 +1,387 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.x {
+    background-color: #e4e4e4;
+}
+/*----------------------------------------------------------------------------------------------*/
+                                      /*texto*/
+h1 {
+    /*titulo*/
+    font-size: 1.3em;
+    margin: 0;
+}
+
+.section-filtro p {
+    margin: 0;
+}
+
+.texto-card h2 {
+    padding: 0px;
+    text-align: center;
+    margin: 0;
+    font-size: 1.2em;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p {
+    padding: 0;
+    margin-top: 0px;
+}
+
+/*----------------------------------------------------------------------------------------------*/
+                        /*container y tamaños responsivos*/
+.grid-container {
+    display: grid;
+    height: 100vh;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+        "h"
+        "b"
+        "m"
+        "f";
+}
+
+@media (min-width: 576px) {
+    .grid-container {
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 2fr 7fr;
+        grid-template-areas:
+            "h h h h h h"
+            "b m m m m m"
+            "b m m m m m"
+            "f f f f f f";
+    }
+
+    .menu-hambur {
+        display: none
+    }
+
+    /*todas las cards estan dentro de*/
+    .section-cards {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .nav-ul .ul {
+        height: auto;
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 2fr 7fr;
+        grid-template-areas:
+            "h h h h h h"
+            "b m m m m m"
+            "b m m m m m"
+            "f f f f f f";
+    }
+
+    .nav-ul .ul {
+        height: auto;
+        width: auto;
+    }
+
+    /*todas las cards estan dentro de*/
+    .section-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+@media (min-width: 992px) {
+    .grid-container {
+        grid-template-rows: auto 1fr auto;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "h b b b b"
+            "h m m m m"
+            "h m m m m"
+            "f m m m m";
+    }
+    /*todas las cards estan dentro de*/
+    .section-cards {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+        justify-content: left;
+    }
+
+    .ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+    }
+}
+/*----------------------------------------------------------------------------------------------*/
+                                 /*section header y su contenido*/
+header {
+    grid-area: h;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #002d58 74%);
+}
+
+nav {
+    display: flex;
+    border: 1px solid #ffffff00;
+    justify-content: space-between;
+    grid-area: navbar;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.img-titulo {
+    display: flex;
+    align-items: center;
+    border: 2px solid #e6e6e600;
+    padding: 10px;
+}
+
+/*------icono cohete------*/
+.cohete {
+    animation: cohete 10s ease 5 alternate;
+}
+
+.cohete:hover {
+    transition: all 120s linear;
+}
+
+@keyframes cohete {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(25%);
+    }
+
+    50% {
+        transform: translatey(20%);
+    }
+
+    75% {
+        transform: translatey(-30%);
+    }
+
+    100% {
+        transform: translateX(40%);
+    }
+}
+/*------------------fin de icono cohete-------------*/
+/*img hamburguesa*/
+.menu-hambur {
+    border: 1px solid #ffffff00;
+    padding: 10px;
+}
+
+.menu-hambur:hover {
+    cursor: pointer;
+}
+
+/*todo---------lista del header en nav ------------*/
+.nav-ul {
+    background-color: #07222500;
+    display: flex;
+}
+
+.ul {
+    display: flex;
+    background-color: #39ebff00;
+    list-style: none;
+    width: 100%;
+    height: 0;
+}
+
+@media screen and (max-width: 575px) {
+    .nav-ul {
+        display: none;
+    }
+}
+
+.li {
+    padding: 10px 20px;
+    background-color: #39ebff00;
+    margin: 0px;
+}
+/*todo------termina la lista del header*/
+/*-----------------------------------------------------------------------------------------*/
+.section-filtro {  /*sección de filtro de busqueda entre el header y el main*/
+    grid-area: b;
+    background-color: #566688;
+    background-image: linear-gradient(315deg, #63a4ff 32%, #002d58 74%);
+    padding: 15px;
+}
+
+/*------dentro de busqueda el div que tiene el titulo y la barra blanca-------*/
+.filtro-p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0px;
+}
+
+/*dentro de seccion, busqueda la linea blanca */
+.precio {
+    width: 97%;
+    padding: 3px;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+main {   /*seccion principal y dentro la grilla*/
+    grid-area: m;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    margin: 15px;
+    overflow: auto;
+}
+
+.section-cards {  /*padre de las cards*/
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid #53535300;
+    width: auto;
+    overflow: auto;
+}
+
+.section-cards .cards {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+/*----------de aqui en adelante son cards----------*/
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    border: 2px solid #bdbcbcec;
+    border-radius: 5px;
+    width: auto;
+    height: 100%;
+}
+
+.cards:hover {
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #fce7d3 5%, #c4cfff 84%);
+}
+
+.card-img { /*caja que contiene la img dentro de card */
+    width: auto;
+    height: 0%;
+}
+
+.imagen { /* efecto de saturacion en la imagen dentro de la card*/
+    border: 2px solid #494949ec;
+    width: 100%;
+    height: 100%;
+    border-style: none;
+    filter: saturate(0%);
+    transition: all 0.6s;
+}
+
+.imagen:hover {
+    filter: saturate(100%);
+}
+
+/*--------BOTON--------*/
+.boton {  /*div que contiene el boton de la card*/
+    transition: all 400ms ease;
+    border: 1px solid #bebebe;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+}
+
+button {
+    border: none;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    width: 45%;
+    padding: 0px;
+    font-size: 15px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.226);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    background-color: #20f8c9;
+    background-image: linear-gradient(315deg, #ff9239 0%, #d49e5f 74%);
+}
+
+button:hover {
+    transition: all 500ms ease;
+    transform: translatey(-7%);
+    background-color: #ffffff;
+    background-image: linear-gradient(315deg, #c43800 0%, #ffa135 74%);
+}
+
+/*----------------------------terminan las cards-----------------------------*/
+/*----------PAGINADO----------*/
+.paginado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ffffff00;
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.paginado a {
+    width: 100%;
+    height: 15px;
+    border-radius: 8%;
+    line-height: 15px;
+    border: 2px solid #dadada;
+    background-color: rgb(255, 255, 255);
+    color: #0d2f33;
+    padding: 10px;
+    margin: 0px;
+    font-size: 1.4em;
+    font-weight: 700;
+    transition: .2s;
+    text-decoration: none;
+    text-align: center
+}
+
+.paginado a:hover {
+    background-color: rgba(128, 128, 128, 0.322);
+    color: #072225;
+}
+
+/*-----------------------------------------------------------------------------------------*/
+footer {
+    grid-area: f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #ff4e00;
+    background-image: linear-gradient(315deg, #ee8f00 0%, #d39205 74%);
+}
